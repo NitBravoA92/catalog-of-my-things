@@ -23,5 +23,5 @@ class Menu
     puts 'Select your option'
     option = gets.chomp.to_i
     @sub_menu.sub_menu(option)
-  end  
+  end
 end

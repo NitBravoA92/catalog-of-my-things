@@ -1,8 +1,8 @@
-require_relative './presentation/menu'
+require_relative 'presentation/menu'
 
 def index
-  menu = Menu.new()
+  menu = Menu.new
   menu.menu_options
-end  
+end
 
 index
