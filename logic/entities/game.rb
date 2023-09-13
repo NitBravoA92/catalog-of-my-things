@@ -10,7 +10,9 @@ class Game < Item
   end
 
   def can_be_archived?
+    current_date = Date.today
+    archieved = current_date.year - @last_played_at.year
     parent_method = super
-    parent_method || @last_played_at > 2
+    parent_method || archieved > 2
   end
 end
