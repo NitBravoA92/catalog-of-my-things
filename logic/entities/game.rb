@@ -1,3 +1,4 @@
+require 'date'
 require_relative 'item'
 
 class Game < Item
@@ -13,6 +14,6 @@ class Game < Item
     current_date = Date.today
     archieved = current_date.year - @last_played_at.year
     parent_method = super
-    parent_method || archieved > 2
+    parent_method && archieved > 2
   end
 end
