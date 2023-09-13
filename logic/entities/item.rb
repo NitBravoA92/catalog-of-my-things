@@ -15,6 +15,11 @@ class Item
     genre.add_item(self)
   end
 
+  def add_author(author)
+    @author = author
+    author.add_item(self)
+  end
+
   def add_author; end
 
   def add_label; end
