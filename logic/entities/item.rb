@@ -20,7 +20,10 @@ class Item
     author.add_item(self)
   end
 
-  def add_label; end
+  def add_label(label)
+    @label = label
+    label.add_item(self)
+  end
 
   def add_source; end
 
