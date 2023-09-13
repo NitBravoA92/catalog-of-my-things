@@ -1,5 +1,4 @@
 require_relative 'item'
-require_relative 'music_album'
 
 class Genre
   attr_accessor :name
