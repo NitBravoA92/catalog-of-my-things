@@ -14,14 +14,13 @@ class UserInteract
     month = gets.chomp
     puts 'Enter date'
     day = gets.chomp
-    string_date = "#{year}-#{month}-#{day}"
-    publish_date = Date.parse(string_date)
+    publish_date = Date.parse("#{year}-#{month}-#{day}")
   end
 
   def on_spotify?
     puts 'Is your album on Spotify (Y/N)?'
     input = gets.chomp
-    toCapitalLetter = input.capitalize
-    true if toCapitalLetter == 'Y'
+    to_cap_letter = input.capitalize
+    true if to_cap_letter == 'Y'
   end
 end
