@@ -31,7 +31,6 @@ class App
   def add_album
     id = 'AL_' + Random.rand(1..10_000).to_s
     publish_date = @uInteract.publish_date
-    # genre = 'LIST TO BE GENERATED'
     on_spotify = @uInteract.on_spotify?
 
     album = MusicAlbum.new(id, publish_date, genre, on_spotify)
