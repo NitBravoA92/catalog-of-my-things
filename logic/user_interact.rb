@@ -25,15 +25,13 @@ class UserInteract
   end
 
   def add_genre
-    puts 'Please, write the Music Genre you want to add'
+    puts 'Please write the Music Genre you want to add'
     input = gets.chomp
-    to_cap_letter = input.capitalize
+    input.capitalize
+    return input
   end
 
-  # def rental_person_id
-  #   read_file_rental if @rental == []
-  #   id = select_person_id_for_rentals
-
-  #   @rental.map do |rental|
-  #     puts "\n On #{rental.date} rental " if rental.person.id == id
+  def select_genre
+    gets.chomp
+  end
 end
