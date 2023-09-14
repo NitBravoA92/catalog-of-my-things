@@ -110,7 +110,3 @@ class App
     end
   end
 end
-
-test = App.new
-test.add_album
-test.list_albums
