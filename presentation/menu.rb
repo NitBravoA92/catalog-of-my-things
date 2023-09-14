@@ -10,6 +10,7 @@ class Menu
   end
 
   def menu_options
+    puts "\n"
     menu = { 1 => 'List all books',
              2 => 'List all music albums',
              3 => 'List all movies',
@@ -18,7 +19,8 @@ class Menu
              6 => 'List all authors',
              7 => 'Add a book',
              8 => 'Add a music album',
-             9 => 'Add a movie' }
+             9 => 'Add a movie',
+             10 => 'Exit' }
 
     menu.each do |key, value|
       puts "#{key}: #{value}"
@@ -30,7 +32,7 @@ class Menu
   def sub_menu(option)
     case option
     when 1
-      @app.add_album
+      @app.list_books
     when 2
       puts 'Here you have the list of all albums'
     when 3
