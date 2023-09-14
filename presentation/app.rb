@@ -1,6 +1,15 @@
+require_relative '../logic/entities/music_album'
+require_relative '../logic/entities/genre'
+require_relative '../logic/user_interact'
+
 class App
+  attr_accessor :albums, :genre
+
   def initialize
     @books = []
+    @albums = []
+    @genre = []
+    @u_interact = UserInteract.new
   end
 
   def list_books
@@ -21,6 +30,11 @@ class App
   end
 
   def add_album
-    puts 'Nuevo albumsito'
+    id = Random.rand(1..10_000).to_s
+    publish_date = @u_interact.publish_date
+    on_spotify = @u_interact.on_spotify?
+
+    album = MusicAlbum.new(id, publish_date, genre, on_spotify)
+    @albums.push(album)
   end
 end
