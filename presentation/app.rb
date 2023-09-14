@@ -3,14 +3,14 @@ require_relative '../logic/entities/genre'
 require_relative '../logic/user_interact'
 
 class App
-
   attr_accessor :albums, :genre
 
   def initialize
     @books = []
     @albums = []
     @genre = []
-    @uInteract = UserInteract.new
+    @u_interact = UserInteract.new
+  end
 
   def list_books
     puts 'Book List:'
@@ -27,12 +27,12 @@ class App
            "Publisher: #{book.publisher}, " \
            "Cover State: #{book.cover_state}"
     end
-  end 
-    
+  end
+
   def add_album
-    id = 'AL_' + Random.rand(1..10_000).to_s
-    publish_date = @uInteract.publish_date
-    on_spotify = @uInteract.on_spotify?
+    id = Random.rand(1..10_000).to_s
+    publish_date = @u_interact.publish_date
+    on_spotify = @u_interact.on_spotify?
 
     album = MusicAlbum.new(id, publish_date, genre, on_spotify)
     @albums.push(album)
