@@ -34,15 +34,10 @@ class Menu
     when 1
       @app.list_books
     when 2
-      puts 'Here you have the list of all albums'
+      @app.list_albums
     when 3
       puts 'Here you have the list of all games'
-    when 4
-      puts 'Please give the detail of your new book'
-    when 5
-      @app.list_labels
-    when 6
-      puts "I'll be back!!"
+    when 7
       exit
     end
     menu_options

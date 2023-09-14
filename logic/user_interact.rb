@@ -23,4 +23,15 @@ class UserInteract
     to_cap_letter = input.capitalize
     true if to_cap_letter == 'Y'
   end
+
+  def add_genre
+    puts 'Please write the Music Genre you want to add'
+    input = gets.chomp
+    input.capitalize
+    input
+  end
+
+  def select_genre
+    gets.chomp
+  end
 end
