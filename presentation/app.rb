@@ -1,5 +1,7 @@
 require_relative '../logic/entities/music_album'
 require_relative '../logic/entities/genre'
+require_relative '../logic/entities/label'
+require_relative '../logic/entities/book'
 require_relative '../logic/user_interact'
 
 class App
@@ -14,16 +16,16 @@ class App
   end
 
   def list_books
-    puts 'Book List:'
+    puts "\nBook List:"
     if @books.empty?
       puts 'No books available'
       return nil
     end
 
-    @books.each_with_index do |idx, book|
+    @books.each_with_index do |book, idx|
       puts "#{idx}) " \
            "ID: #{book.id}, " \
-           "Title: #{book.label.title}, " \
+           "Label: #{book.label.title}, " \
            "Publish Date: #{book.publish_date}, " \
            "Publisher: #{book.publisher}, " \
            "Cover State: #{book.cover_state}"
@@ -31,18 +33,64 @@ class App
   end
 
   def list_labels
-    puts 'Label List:'
+    puts "\nLabel List:"
     if @labels.empty?
       puts 'No Labels available'
       return nil
     end
 
-    @labels.each_with_index do |idx, label|
+    @labels.each_with_index do |label, idx|
       puts "#{idx}) " \
            "ID: #{label.id}, " \
-           "Title: #{book.label.title}, " \
-           "Color: #{book.publish_date}, "
+           "Title: #{label.title}, " \
+           "Color: #{label.color}, "
     end
+  end
+
+  def add_label
+    new_label
+    puts 'Label created successfully'
+  end
+
+  def new_label
+    id = Random.rand(1..10_000)
+    title = @u_interact.title
+    color = @u_interact.color
+
+    label = Label.new(id, title, color)
+    @labels << label
+
+    label
+  end
+
+  def add_book
+    new_book
+    puts "Book created successfully\n"
+  end
+
+  def new_book
+    id = Random.rand(1..10_000)
+    publish_date = @u_interact.publish_date
+    publisher = @u_interact.publisher
+    cover_state = @u_interact.cover_state
+    label = nil
+
+    if @labels.empty?
+      label = new_label
+    else
+      list_labels
+      label_option_selected = @u_interact.select_label
+      if %w[n N].include?(label_option_selected)
+        label = new_label
+      else
+        label_index = label_option_selected.to_i
+        label = @labels[label_index]
+      end
+    end
+
+    book = Book.new(id, publish_date, publisher, cover_state)
+    book.add_label(label)
+    @books << book
   end
 
   def add_album

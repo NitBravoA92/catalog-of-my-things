@@ -36,7 +36,11 @@ class Menu
     when 2
       @app.list_albums
     when 3
-      puts 'Here you have the list of all games'
+      @app.list_labels
+    when 4
+      @app.add_book
+    when 5
+      @app.add_label
     when 7
       exit
     end
