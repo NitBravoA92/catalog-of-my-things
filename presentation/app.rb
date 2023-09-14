@@ -20,7 +20,7 @@ class App
       return nil
     end
 
-    @books.each_with_index do |idx, book|
+    @books.each_with_index do |book, idx|
       puts "#{idx}) " \
            "ID: #{book.id}, " \
            "Title: #{book.label.title}, " \
@@ -37,7 +37,7 @@ class App
       return nil
     end
 
-    @labels.each_with_index do |idx, label|
+    @labels.each_with_index do |label, idx|
       puts "#{idx}) " \
            "ID: #{label.id}, " \
            "Title: #{book.label.title}, " \
