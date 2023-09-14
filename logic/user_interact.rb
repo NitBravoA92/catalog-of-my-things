@@ -34,4 +34,14 @@ class UserInteract
   def select_genre
     gets.chomp
   end
+
+  def title
+    puts "\nAdd the Label title"
+    gets.chomp
+  end
+
+  def color
+    puts "\nAdd the Label color"
+    gets.chomp
+  end
 end
