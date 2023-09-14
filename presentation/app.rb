@@ -9,6 +9,7 @@ class App
 
   def initialize
     @books = []
+    @authors = []
     @albums = []
     @genres = []
     @labels = []
@@ -29,6 +30,21 @@ class App
            "Publish Date: #{book.publish_date}, " \
            "Publisher: #{book.publisher}, " \
            "Cover State: #{book.cover_state}"
+    end
+  end
+
+  def list_authors
+    puts 'Authors list'
+    if @authors.empty?
+      puts 'No authors available'
+      return nil
+    end
+
+    @authors.each_with_index do |author, index|
+      puts "#{index}, " \
+           "ID: #{author.id}", \
+           "Name: #{author.first_name}, " \
+           "Last name: #{author.last_name}, "
     end
   end
 
