@@ -68,7 +68,7 @@ class UserInteract
   end
 
   def select_label
-    puts "Select a Label from the above list by the index [not id] or press (n) if you need to add a new one"
-    gets.chomp.to_i
+    puts 'Select a Label from the above list by the index [not id] or press (n) if you need to add a new one'
+    gets.chomp
   end
 end
