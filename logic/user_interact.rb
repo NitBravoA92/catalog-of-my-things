@@ -28,7 +28,7 @@ class UserInteract
     puts 'Please write the Music Genre you want to add'
     input = gets.chomp
     input.capitalize
-    return input
+    input
   end
 
   def select_genre
