@@ -50,7 +50,8 @@ class App
     publish_date = @u_interact.publish_date
     on_spotify = @u_interact.on_spotify?
     genre = select_genre
-    album = MusicAlbum.new(id, publish_date, genre, on_spotify)
+    album = MusicAlbum.new(id, publish_date, on_spotify: on_spotify)
+    album.add_genre(genre)
     @albums.push(album)
   end
 
@@ -59,14 +60,28 @@ class App
     name = @u_interact.add_genre
     genre = Genre.new(id, name)
     @genres.push(genre)
+    genre
   end
 
   def select_genre
+    genre = nil
+    option = nil
+
     if @genres == []
-      @u_interact.add_genre
+      genre = add_genre
     else
+      puts 'Select a Gener by selecting (index), or press (n) if you need to add a new one'
       list_genres
+      option = @u_interact.select_genre
     end
+
+    if %w[n N].include?(option)
+      genre = add_genre
+    else
+      option = option.to_i
+      genre = @genres[option]
+    end
+    genre
   end
 
   def list_albums
@@ -77,22 +92,25 @@ class App
     end
 
     @albums.each_with_index do |album, idx|
-      puts "\n #{idx}) ID: (#{album.id}) Publish Date: #{album.publish_date} Genre: #{album.name} Is on Spotify: #{album.on_spotify}"
-  end   
+      puts "\n #{idx}) ID: (#{album.id})" \
+           "- Publish Date: #{album.publish_date} - Genre: #{album.genre.name} " \
+           "- Is available on Spotify: #{album.on_spotify}"
+    end
+  end
 
   def list_genres
     puts 'Genres List:'
     if @genres.empty?
-      puts 'No Genres available yet, please add one'
+      puts 'No Genres available yet'
       return nil
     end
-  
+
     @genres.each_with_index do |genre, idx|
-    puts "\n #{idx}) ID: (#{genre.id}) Genre: #{genre.name}"
+      puts "\n #{idx}) ID: (#{genre.id}) Genre: #{genre.name}"
     end
-  end  
+  end
 end
 
 test = App.new
-test.add_genre
-test.list_genres
+test.add_album
+test.list_albums

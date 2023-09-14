@@ -37,15 +37,7 @@ class Menu
       @app.list_albums
     when 3
       puts 'Here you have the list of all games'
-    when 4
-      @app.list_genres
-    when 5
-      @app.list_labels
-    when 6
-      puts "I'll be back!!"
-    when 8
-      @app.add_album
-    when 7   
+    when 7
       exit
     end
     menu_options
