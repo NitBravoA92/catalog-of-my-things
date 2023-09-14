@@ -1,9 +1,9 @@
 require_relative 'item'
 
 class Genre
-  attr_accessor :name
+  attr_accessor :name, :id
 
-  def initialize(id, name, _items)
+  def initialize(id, name)
     @id = id
     @name = name
     @items = []
