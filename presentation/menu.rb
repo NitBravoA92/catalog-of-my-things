@@ -2,31 +2,29 @@ require_relative '../logic/user_interact'
 require_relative 'app'
 
 class Menu
-  attr_accessor :sub_menu, :data
+  attr_accessor :data
 
   def initialize
-    @data = User_interact.new
+    @data = UserInteract.new
     @app = App.new
   end
 
   def menu_options
-    
-    menu = { 1 => 'List all books', 
-             2 => 'List all music albums' , 
-             3 => 'List all movies', 
-             4 => 'List all genres', 
-             5 => 'List all Labels', 
-             6 => 'List all authors' , 
-             7 => 'Add a book', 
-             8 => 'Add a music album', 
-             9 => 'Add a movie'
-            }
+    menu = { 1 => 'List all books',
+             2 => 'List all music albums',
+             3 => 'List all movies',
+             4 => 'List all genres',
+             5 => 'List all Labels',
+             6 => 'List all authors',
+             7 => 'Add a book',
+             8 => 'Add a music album',
+             9 => 'Add a movie' }
 
-      menu.each do |key, value|
-        puts "#{key}: #{value}" 
-      end
+    menu.each do |key, value|
+      puts "#{key}: #{value}"
+    end
 
-      sub_menu(@data.option)   
+    sub_menu(@data.option)
   end
 
   def sub_menu(option)
@@ -40,12 +38,11 @@ class Menu
     when 4
       puts 'Please give the detail of your new book'
     when 5
-      puts 'Please insert the details of your new game'  
+      puts 'Please insert the details of your new game'
     when 6
       puts "I'll be back!!"
       exit
     end
     menu_options
   end
-
 end
