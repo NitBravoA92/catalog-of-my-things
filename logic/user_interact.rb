@@ -14,7 +14,7 @@ class UserInteract
     month = gets.chomp
     puts 'Enter date'
     day = gets.chomp
-    publish_date = Date.parse("#{year}-#{month}-#{day}")
+    Date.parse("#{year}-#{month}-#{day}")
   end
 
   def on_spotify?
