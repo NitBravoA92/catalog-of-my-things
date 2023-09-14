@@ -19,6 +19,5 @@ class App
 
     album = MusicAlbum.new(id, publish_date, genre, on_spotify)
     @albums.push(album)
-    puts @albums[0]
   end
 end
