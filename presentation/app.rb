@@ -40,7 +40,7 @@ class App
       return nil
     end
 
-    @Authors.each_with_index do |index, author|
+    @authors.each_with_index do |author, index|
       puts "#{index}, " \
            "ID: #{author.id}", \
            "Name: #{author.first_name}, " \
