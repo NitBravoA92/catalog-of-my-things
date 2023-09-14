@@ -1,5 +1,6 @@
 require_relative '../logic/entities/music_album'
 require_relative '../logic/entities/genre'
+require_relative '../logic/entities/label'
 require_relative '../logic/user_interact'
 
 class App
@@ -14,7 +15,7 @@ class App
   end
 
   def list_books
-    puts 'Book List:'
+    puts "\nBook List:"
     if @books.empty?
       puts 'No books available'
       return nil
@@ -31,7 +32,7 @@ class App
   end
 
   def list_labels
-    puts 'Label List:'
+    puts "\nLabel List:"
     if @labels.empty?
       puts 'No Labels available'
       return nil
@@ -40,9 +41,25 @@ class App
     @labels.each_with_index do |label, idx|
       puts "#{idx}) " \
            "ID: #{label.id}, " \
-           "Title: #{book.label.title}, " \
-           "Color: #{book.publish_date}, "
+           "Title: #{label.title}, " \
+           "Color: #{label.color}, "
     end
+  end
+
+  def add_label
+    new_label
+    puts 'Label created successfully'
+  end
+
+  def new_label
+    id = Random.rand(1..10_000)
+    title = @u_interact.title
+    color = @u_interact.color
+
+    label = Label.new(id, title, color)
+    @labels << label
+
+    label
   end
 
   def add_album
