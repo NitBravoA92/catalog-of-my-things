@@ -8,7 +8,7 @@ class App
   def initialize
     @books = []
     @albums = []
-    @genre = []
+    @genres = []
     @labels = []
     @u_interact = UserInteract.new
   end
@@ -53,4 +53,15 @@ class App
     album = MusicAlbum.new(id, publish_date, genre, on_spotify)
     @albums.push(album)
   end
+
+  def add_genre
+    id = Random.rand(1..20)
+    name = @u_interact.add_genre
+    genre = Genre.new(id, name)
+    @genres.push(genre)
+    puts @genres
+  end  
 end
+
+test = App.new
+test.add_genre
