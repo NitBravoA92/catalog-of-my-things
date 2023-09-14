@@ -9,6 +9,7 @@ class App
     @books = []
     @albums = []
     @genre = []
+    @labels = []
     @u_interact = UserInteract.new
   end
 
@@ -26,6 +27,21 @@ class App
            "Publish Date: #{book.publish_date}, " \
            "Publisher: #{book.publisher}, " \
            "Cover State: #{book.cover_state}"
+    end
+  end
+
+  def list_labels
+    puts 'Label List:'
+    if @labels.empty?
+      puts 'No Labels available'
+      return nil
+    end
+
+    @labels.each_with_index do |idx, label|
+      puts "#{idx}) " \
+           "ID: #{label.id}, " \
+           "Title: #{book.label.title}, " \
+           "Color: #{book.publish_date}, "
     end
   end
 
