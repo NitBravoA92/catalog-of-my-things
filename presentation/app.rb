@@ -38,6 +38,3 @@ class App
     @albums.push(album)
   end
 end
-
-
-
