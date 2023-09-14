@@ -1,6 +1,7 @@
 require_relative '../logic/entities/music_album'
 require_relative '../logic/entities/genre'
 require_relative '../logic/entities/label'
+require_relative '../logic/entities/book'
 require_relative '../logic/user_interact'
 
 class App
@@ -24,7 +25,7 @@ class App
     @books.each_with_index do |book, idx|
       puts "#{idx}) " \
            "ID: #{book.id}, " \
-           "Title: #{book.label.title}, " \
+           "Label: #{book.label.title}, " \
            "Publish Date: #{book.publish_date}, " \
            "Publisher: #{book.publisher}, " \
            "Cover State: #{book.cover_state}"
@@ -60,6 +61,36 @@ class App
     @labels << label
 
     label
+  end
+
+  def add_book
+    new_book
+    puts "Book created successfully\n"
+  end
+
+  def new_book
+    id = Random.rand(1..10_000)
+    publish_date = @u_interact.publish_date
+    publisher = @u_interact.publisher
+    cover_state = @u_interact.cover_state
+    label = nil
+
+    if @labels.empty?
+      label = new_label
+    else
+      list_labels
+      label_option_selected = @u_interact.select_label
+      if %w[n N].include?(label_option_selected)
+        label = new_label
+      else
+        label_index = label_option_selected.to_i
+        label = @labels[label_index]
+      end
+    end
+
+    book = Book.new(id, publish_date, publisher, cover_state)
+    book.add_label(label)
+    @books << book
   end
 
   def add_album
