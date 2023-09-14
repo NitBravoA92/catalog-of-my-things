@@ -27,6 +27,7 @@ class App
            "Publisher: #{book.publisher}, " \
            "Cover State: #{book.cover_state}"
     end
+  end 
     
   def add_album
     id = 'AL_' + Random.rand(1..10_000).to_s
