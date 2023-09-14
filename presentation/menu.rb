@@ -1,27 +1,51 @@
-require_relative 'sub_menu'
+require_relative '../logic/user_interact'
+require_relative 'app'
 
 class Menu
+  attr_accessor :sub_menu, :data
+
   def initialize
-    @sub_menu = SubMenu.new
+    @data = User_interact.new
+    @app = App.new
   end
 
   def menu_options
-    puts 'Welcome to your Catalog Manager!'
-    puts "\n"
-    puts '1 - List all books'
-    puts '2 - List all Albums'
-    puts '3 - List all Games'
-    puts '4 - Add a book'
-    puts '5 - Add an Album'
-    puts '6 - Add a Game'
-    puts '7 - Exit'
-    puts "\n"
-    option_selected
+    
+    menu = { 1 => 'List all books', 
+             2 => 'List all music albums' , 
+             3 => 'List all movies', 
+             4 => 'List all genres', 
+             5 => 'List all Labels', 
+             6 => 'List all authors' , 
+             7 => 'Add a book', 
+             8 => 'Add a music album', 
+             9 => 'Add a movie'
+            }
+
+      menu.each do |key, value|
+        puts "#{key}: #{value}" 
+      end
+
+      sub_menu(@data.option)   
   end
 
-  def option_selected
-    puts 'Select your option'
-    option = gets.chomp.to_i
-    @sub_menu.sub_menu(option)
+  def sub_menu(option)
+    case option
+    when 1
+      @app.add_album
+    when 2
+      puts 'Here you have the list of all albums'
+    when 3
+      puts 'Here you have the list of all games'
+    when 4
+      puts 'Please give the detail of your new book'
+    when 5
+      puts 'Please insert the details of your new game'  
+    when 6
+      puts "I'll be back!!"
+      exit
+    end
+    menu_options
   end
+
 end

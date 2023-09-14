@@ -1,8 +1,13 @@
-require_relative 'presentation/menu'
+require_relative './presentation/menu'
 
-def index
-  menu = Menu.new
-  menu.menu_options
-end
+def start
+  
+  puts "\n"
+  puts 'Welcome to your Catalog Manager!'
+  puts "\n"
+  
+  run = Menu.new
+  run.menu_options
+end  
 
-index
+start
