@@ -40,7 +40,7 @@ class Menu
     when 4
       puts 'Please give the detail of your new book'
     when 5
-      puts 'Please insert the details of your new game'
+      @app.list_labels
     when 6
       puts "I'll be back!!"
       exit
