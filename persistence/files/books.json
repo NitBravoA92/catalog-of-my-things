@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": 3248,
+    "publish_date": "2003-05-01",
+    "publisher": "ne0",
+    "cover_state": "bad",
+    "label": {
+      "id": 3030,
+      "title": "tr",
+      "color": "yt"
+    }
+  }
+]
