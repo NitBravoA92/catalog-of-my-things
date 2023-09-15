@@ -37,4 +37,33 @@ describe Book do
       expect(@book.cover_state).to eq('good')
     end
   end
+
+  describe '#can_be_archived?' do
+    context 'when the publish date is newer than 10 years' do
+      it 'should return false' do
+        expect(@book.can_be_archived?).to eq(false)
+      end
+    end
+
+    context 'when the cover state is good' do
+      it 'should return false' do
+        expect(@book.can_be_archived?).to eq(false)
+      end
+    end
+
+    context 'when the publish date is older than 10 years' do
+      it 'should return true' do
+        @book.publish_date = Date.new(2010, 9, 15)
+        expect(@book.can_be_archived?).to eq(true)
+      end
+    end
+
+    context 'when the cover state is bad' do
+      it 'should return true' do
+        @book.publish_date = Date.new(2020, 9, 15)
+        @book.cover_state = 'bad'
+        expect(@book.can_be_archived?).to eq(true)
+      end
+    end
+  end
 end
