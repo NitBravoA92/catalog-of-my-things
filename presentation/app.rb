@@ -16,7 +16,7 @@ class App
     @labels = read_all_labels
     @books = read_all_books(@labels)
     @authors = []
-    @games = []
+    @games = read_games
     @albums = []
     @genres = []
     @u_interact = UserInteract.new
@@ -147,5 +147,6 @@ class App
   def save_all_on_exit
     save_book(@books) unless @books.empty?
     save_label(@labels) unless @labels.empty?
+    save_games(@games) unless @games.empty?
   end
 end
