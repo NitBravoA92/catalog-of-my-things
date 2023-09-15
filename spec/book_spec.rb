@@ -66,4 +66,21 @@ describe Book do
       end
     end
   end
+
+  describe '#move_to_archive' do
+    context 'when the book cannot be archived' do
+      it '@archived property should be false' do
+        @book.move_to_archive
+        expect(@book.archived).to eq(false)
+      end
+    end
+
+    context 'when the book can be archived' do
+      it '@archived property should be true' do
+        @book.cover_state = 'bad'
+        @book.move_to_archive
+        expect(@book.archived).to eq(true)
+      end
+    end
+  end
 end
