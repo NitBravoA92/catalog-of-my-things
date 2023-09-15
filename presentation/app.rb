@@ -13,12 +13,12 @@ class App
   attr_accessor :albums, :genre
 
   def initialize
-    @books = read_all_books
+    @labels = read_all_labels
+    @books = read_all_books(@labels)
     @authors = []
     @games = []
     @albums = []
     @genres = []
-    @labels = read_all_labels
     @u_interact = UserInteract.new
     @check = CheckData.new
   end
@@ -145,7 +145,7 @@ class App
   end
 
   def save_all_on_exit
-    save_label(@labels) unless @labels.empty?
     save_book(@books) unless @books.empty?
+    save_label(@labels) unless @labels.empty?
   end
 end
