@@ -1,13 +1,13 @@
 require_relative '../file_manager'
 
 module BookData
-  FILENAME = 'books.json'
+  FILENAME = 'books.json'.freeze
 
   include FileManager
 
   def read_all_books(labels)
     data = read_file(file(FILENAME))
-    data.map { |book|  json_to_book(book, labels.find { |item| book["label"]["id"] == item.id }) }
+    data.map { |book| json_to_book(book, labels.find { |item| book['label']['id'] == item.id }) }
   end
 
   def save_book(books)
@@ -16,9 +16,9 @@ module BookData
   end
 
   def book_to_json(book)
-    { 
-      id: book.id, 
-      publish_date: book.publish_date, 
+    {
+      id: book.id,
+      publish_date: book.publish_date,
       publisher: book.publisher,
       cover_state: book.cover_state,
       label: { id: book.label.id, title: book.label.title, color: book.label.color }
