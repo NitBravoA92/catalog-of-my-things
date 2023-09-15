@@ -1,19 +1,23 @@
+require_relative '../persistence/albums'
+require_relative '../persistence/genre'
 require_relative '../logic/entities/music_album'
 require_relative '../logic/entities/genre'
 require_relative '../logic/user_interact'
-require_relative '../persistence/albums.rb'
 
 class App
   attr_accessor :albums, :genre
-
+  
   def initialize
     @books = []
-    @albums = []
+    @albums_data = AlbumsData.new
+    @albums = @albums_data.read_saved_albums
+    @genres_data = GenreData.new
     @genres = []
+    # @genres = @genres_data.read_saved_genres
     @labels = []
     @u_interact = UserInteract.new
   end
-
+  
   def list_books
     puts 'Book List:'
     if @books.empty?
@@ -52,11 +56,8 @@ class App
     on_spotify = @u_interact.on_spotify?
     genre = select_genre
     album = MusicAlbum.new(id, publish_date, on_spotify: on_spotify)
-    album.add_genre(genre)
+    genre.add_item(album)
     @albums.push(album)
-    # album_to_save = [{'id': id, 'Publish date': publish_date, 'On spotify': on_spotify }]
-    # album_file = './persistence/files/albums.json'
-    # write_data(album_to_save, album_file)
   end
 
   def add_genre
@@ -115,8 +116,8 @@ class App
   end
 
   def save_on_exit
-    save = AlbumsData.new(@albums)
-    save.save_to_hash
+    @albums_data.save_to_hash(@albums)
+    @genres_data.save_to_hash(@genres)
     exit
   end  
 end
