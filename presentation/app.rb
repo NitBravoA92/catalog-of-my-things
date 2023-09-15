@@ -2,52 +2,99 @@ require_relative '../persistence/data/albums'
 require_relative '../persistence/data/genres'
 require_relative '../logic/entities/music_album'
 require_relative '../logic/entities/genre'
+require_relative '../logic/entities/label'
+require_relative '../logic/entities/book'
+require_relative '../logic/entities/game'
 require_relative '../logic/user_interact'
+require_relative '../logic/checkdata'
 require_relative '../persistence/data_manager'
 
 class App
+  include DataManager
+
   attr_accessor :albums, :genre
 
   include DataManager
 
   def initialize
-    @books = []
     @genres = read_all_genres
     @albums = read_all_albums(@genres)
-    @labels = []
+    @labels = read_all_labels
+    @books = read_all_books(@labels)
+    @authors = []
+    @games = read_games
     @u_interact = UserInteract.new
+    @check = CheckData.new
   end
 
   def list_books
-    puts 'Book List:'
-    if @books.empty?
-      puts 'No books available'
-      return nil
-    end
+    @check.check_list_books(@books)
+  end
 
-    @books.each_with_index do |idx, book|
-      puts "#{idx}) " \
-           "ID: #{book.id}, " \
-           "Title: #{book.label.title}, " \
-           "Publish Date: #{book.publish_date}, " \
-           "Publisher: #{book.publisher}, " \
-           "Cover State: #{book.cover_state}"
-    end
+  def list_authors
+    @check.check_list_authors(@authors)
+  end
+
+  def list_games
+    @check.check_list_games(@games)
   end
 
   def list_labels
-    puts 'Label List:'
+    @check.check_list_labels(@labels)
+  end
+
+  def list_albums
+    @check.check_list_albums(@albums)
+  end
+
+  def list_genres
+    @check.check_list_genres(@genres)
+  end
+
+  def add_label
+    new_label
+    puts 'Label created successfully'
+  end
+
+  def new_label
+    id = Random.rand(1..10_000)
+    title = @u_interact.title
+    color = @u_interact.color
+
+    label = Label.new(id, title, color)
+    @labels << label
+
+    label
+  end
+
+  def add_book
+    new_book
+    puts "Book created successfully\n"
+  end
+
+  def new_book
+    id = Random.rand(1..10_000)
+    publish_date = @u_interact.publish_date
+    publisher = @u_interact.publisher
+    cover_state = @u_interact.cover_state
+    label = nil
+
     if @labels.empty?
-      puts 'No Labels available'
-      return nil
+      label = new_label
+    else
+      list_labels
+      label_option_selected = @u_interact.select_label
+      if %w[n N].include?(label_option_selected)
+        label = new_label
+      else
+        label_index = label_option_selected.to_i
+        label = @labels[label_index]
+      end
     end
 
-    @labels.each_with_index do |idx, label|
-      puts "#{idx}) " \
-           "ID: #{label.id}, " \
-           "Title: #{book.label.title}, " \
-           "Color: #{book.publish_date}, "
-    end
+    book = Book.new(id, publish_date, publisher, cover_state)
+    book.add_label(label)
+    @books << book
   end
 
   def add_album
@@ -89,35 +136,23 @@ class App
     genre
   end
 
-  def list_albums
-    puts 'Music Albums list: '
-    if @albums.empty?
-      puts 'No Music Albums in your catalog yet'
-      return nil
-    end
+  def add_game
+    id = Random.rand(2000..10_000)
+    puts 'Enter publish date'
+    pd = @u_interact.publish_date
+    mp = @u_interact.multiplayer
+    puts 'Enter last played date'
+    lp = @u_interact.publish_date
 
-    @albums.each_with_index do |album, idx|
-      puts "\n #{idx}) ID: (#{album.id})" \
-           "- Publish Date: #{album.publish_date} - Genre: #{album.genre.name} " \
-           "- Is available on Spotify: #{album.on_spotify}"
-    end
+    game = Game.new(id, pd, mp, lp)
+    @games << game
   end
 
-  def list_genres
-    puts 'Genres List:'
-    if @genres.empty?
-      puts 'No Genres available yet'
-      return nil
-    end
-
-    @genres.each_with_index do |genre, idx|
-      puts "\n #{idx}) ID: (#{genre.id}) Genre: #{genre.name}"
-    end
-  end
-
-  def save_on_exit
+  def save_all_on_exit
+    save_book(@books) unless @books.empty?
+    save_label(@labels) unless @labels.empty?
+    save_games(@games) unless @games.empty?
     save_album(@albums) unless @albums.empty?
     save_genres(@genres) unless @genres.empty?
-    exit
   end
 end

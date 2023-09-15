@@ -8,39 +8,40 @@ class Menu
   def initialize
     @data = UserInteract.new
     @app = App.new
+
+    @menu = { 1 => ['List all books', 'list_books'],
+              2 => ['List all music albums', 'list_albums'],
+              3 => ['List all games', 'list_games'],
+              4 => ['List all genres', 'list_genres'],
+              5 => ['List all Labels', 'list_labels'],
+              6 => ['List all authors', 'list_authors'],
+              7 => ['Add a book', 'add_book'],
+              8 => ['Add a music album', 'add_album'],
+              9 => ['Add a game', 'add_game'],
+              10 => %w[Exit save_all_on_exit] }
   end
 
   def menu_options
     puts "\n"
-    menu = { 1 => 'List all books',
-             2 => 'List all music albums',
-             3 => 'List all movies',
-             4 => 'List all genres',
-             5 => 'List all Labels',
-             6 => 'List all authors',
-             7 => 'Add a book',
-             8 => 'Add a music album',
-             9 => 'Add a movie',
-             10 => 'Exit' }
 
-    menu.each do |key, value|
-      puts "#{key}: #{value}"
+    @menu.each do |key, value|
+      puts "#{key}: #{value[0]}"
     end
 
     sub_menu(@data.option)
   end
 
   def sub_menu(option)
-    case option
-    when 1
-      @app.save_on_exit
-    when 2
-      @app.list_albums
-    when 3
-      @app.add_album
-    when 7
-      exit
+    @menu.each do |key, value|
+      next unless key == option
+
+      @app.send(value[1])
+      if option == 10
+        puts "I'll be back!!"
+        exit
+      end
     end
+
     menu_options
   end
 end
