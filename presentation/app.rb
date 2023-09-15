@@ -52,17 +52,17 @@ class App
   def list_games
     puts 'Games List'
     if @games.empty?
-        puts 'No games available'
-        return nil
+      puts 'No games available'
+      return nil
     end
     @games.each_with_index do |games, index|
-        puts "#{index})" \
-             "ID: #{games.id}," \
-             "Publish date: #{games.publish_date}," \
-             "Multiplayer: #{games.multiplayer}," \
-             "Last played: #{games.last_played_at},"
-    end             
-  end 
+      puts "#{index})" \
+           "ID: #{games.id}," \
+           "Publish date: #{games.publish_date}," \
+           "Multiplayer: #{games.multiplayer}," \
+           "Last played: #{games.last_played_at},"
+    end
+  end
 
   def list_labels
     puts "\nLabel List:"
