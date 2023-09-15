@@ -2,6 +2,7 @@ require_relative '../logic/entities/music_album'
 require_relative '../logic/entities/genre'
 require_relative '../logic/entities/label'
 require_relative '../logic/entities/book'
+require_relative '../logic/entities/game'
 require_relative '../logic/user_interact'
 require_relative '../logic/checkdata'
 require_relative '../persistence/data_manager'
@@ -129,6 +130,18 @@ class App
       genre = @genres[option]
     end
     genre
+  end
+
+  def add_game
+    id = Random.rand(2000..10_000)
+    puts 'Enter publish date'
+    pd = @u_interact.publish_date
+    mp = @u_interact.multiplayer
+    puts 'Enter last played date'
+    lp = @u_interact.publish_date
+
+    game = Game.new(id, pd, mp, lp)
+    @games << game
   end
 
   def save_all_on_exit

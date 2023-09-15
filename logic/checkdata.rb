@@ -38,11 +38,11 @@ class CheckData
       return nil
     end
     games.each_with_index do |game, index|
-      puts "#{index})" \
-           "ID: #{games.id}," \
-           "Publish date: #{game.publish_date}," \
-           "Multiplayer: #{game.multiplayer}," \
-           "Last played: #{game.last_played_at},"
+      puts "#{index}) " \
+           "ID: #{game.id}, " \
+           "Publish date: #{game.publish_date}, " \
+           "Multiplayer: #{game.multiplayer}, " \
+           "Last played: #{game.last_played_at}, "
     end
   end
 
