@@ -1,5 +1,6 @@
 require_relative '../logic/user_interact'
 require_relative 'app'
+require_relative '../persistence/albums.rb'
 
 class Menu
   attr_accessor :data
@@ -32,11 +33,11 @@ class Menu
   def sub_menu(option)
     case option
     when 1
-      @app.list_books
+      @app.save_on_exit
     when 2
       @app.list_albums
     when 3
-      puts 'Here you have the list of all games'
+      @app.add_album
     when 7
       exit
     end

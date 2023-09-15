@@ -1,6 +1,7 @@
 require_relative '../logic/entities/music_album'
 require_relative '../logic/entities/genre'
 require_relative '../logic/user_interact'
+require_relative '../persistence/albums.rb'
 
 class App
   attr_accessor :albums, :genre
@@ -53,6 +54,9 @@ class App
     album = MusicAlbum.new(id, publish_date, on_spotify: on_spotify)
     album.add_genre(genre)
     @albums.push(album)
+    # album_to_save = [{'id': id, 'Publish date': publish_date, 'On spotify': on_spotify }]
+    # album_file = './persistence/files/albums.json'
+    # write_data(album_to_save, album_file)
   end
 
   def add_genre
@@ -109,4 +113,10 @@ class App
       puts "\n #{idx}) ID: (#{genre.id}) Genre: #{genre.name}"
     end
   end
+
+  def save_on_exit
+    save = AlbumsData.new(@albums)
+    save.save_to_hash
+    exit
+  end  
 end

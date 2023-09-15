@@ -21,7 +21,12 @@ class UserInteract
     puts 'Is your album on Spotify (Y/N)?'
     input = gets.chomp
     to_cap_letter = input.capitalize
-    true if to_cap_letter == 'Y'
+    
+    if to_cap_letter == 'Y'
+      true
+    else
+      false
+    end    
   end
 
   def add_genre
