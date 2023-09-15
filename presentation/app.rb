@@ -10,6 +10,7 @@ class App
   def initialize
     @books = []
     @authors = []
+    @games = []
     @albums = []
     @genres = []
     @labels = []
@@ -41,12 +42,27 @@ class App
     end
 
     @authors.each_with_index do |author, index|
-      puts "#{index}, " \
-           "ID: #{author.id}", \
-           "Name: #{author.first_name}, " \
-           "Last name: #{author.last_name}, "
+      puts "#{index}) " \
+           "ID: #{author.id}," \
+           "Name: #{author.first_name}," \
+           "Last name: #{author.last_name},"
     end
   end
+
+  def list_games
+    puts 'Games List'
+    if @games.empty?
+        puts 'No games available'
+        return nil
+    end
+    @games.each_with_index do |games, index|
+        puts "#{index})" \
+             "ID: #{games.id}," \
+             "Publish date: #{games.publish_date}," \
+             "Multiplayer: #{games.multiplayer}," \
+             "Last played: #{games.last_played_at},"
+    end             
+  end 
 
   def list_labels
     puts "\nLabel List:"
