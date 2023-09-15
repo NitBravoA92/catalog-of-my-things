@@ -30,4 +30,18 @@ describe Label do
     end
   end
 
+  describe '#add_item' do
+    context 'when a new Item is created' do
+      it 'it should be added to the @items array' do
+        @label.add_item(@first_book)
+        expect(@label.items.length).to eq(1)
+        expect(@label.items[0]).to eq(@first_book)
+      end
+
+      it 'should have the new label saved in the label property' do
+        @label.add_item(@first_book)
+        expect(@label.items[0].label).to eq(@label)
+      end
+    end
+  end
 end
