@@ -1,3 +1,5 @@
+require_relative '../persistence/data/albums'
+require_relative '../persistence/data/genres'
 require_relative '../logic/entities/music_album'
 require_relative '../logic/entities/genre'
 require_relative '../logic/entities/label'
@@ -12,13 +14,15 @@ class App
 
   attr_accessor :albums, :genre
 
+  include DataManager
+
   def initialize
+    @genres = read_all_genres
+    @albums = read_all_albums(@genres)
     @labels = read_all_labels
     @books = read_all_books(@labels)
     @authors = []
     @games = read_games
-    @albums = []
-    @genres = []
     @u_interact = UserInteract.new
     @check = CheckData.new
   end
@@ -148,5 +152,7 @@ class App
     save_book(@books) unless @books.empty?
     save_label(@labels) unless @labels.empty?
     save_games(@games) unless @games.empty?
+    save_album(@albums) unless @albums.empty?
+    save_genres(@genres) unless @genres.empty?
   end
 end

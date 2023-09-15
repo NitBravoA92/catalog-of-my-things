@@ -1,0 +1,20 @@
+[
+  {
+    "id": 3128,
+    "publish_date": "2020-01-05",
+    "on_spotify": true,
+    "genre": {
+      "id": 10,
+      "name": "Pop"
+    }
+  },
+  {
+    "id": 6463,
+    "publish_date": "1950-05-01",
+    "on_spotify": true,
+    "genre": {
+      "id": 17,
+      "name": "rock"
+    }
+  }
+]

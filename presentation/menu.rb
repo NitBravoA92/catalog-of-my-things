@@ -1,5 +1,6 @@
 require_relative '../logic/user_interact'
 require_relative 'app'
+require_relative '../persistence/data/albums'
 
 class Menu
   attr_accessor :data
@@ -15,7 +16,7 @@ class Menu
               5 => ['List all Labels', 'list_labels'],
               6 => ['List all authors', 'list_authors'],
               7 => ['Add a book', 'add_book'],
-              8 => ['Add a music album', 2],
+              8 => ['Add a music album', 'add_album'],
               9 => ['Add a game', 'add_game'],
               10 => %w[Exit save_all_on_exit] }
   end
