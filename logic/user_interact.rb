@@ -8,7 +8,7 @@ class UserInteract
   end
 
   def publish_date
-    puts 'Enter the year of publish'
+    puts 'Enter the year'
     year = gets.chomp
     puts 'Enter month in numbers, eg.: 04 for April'
     month = gets.chomp
@@ -70,5 +70,19 @@ class UserInteract
   def select_label
     puts 'Select a Label from the above list by the index [not id] or press (n) if you need to add a new one'
     gets.chomp
+  end
+
+  def multiplayer
+    loop do
+      puts 'The game it is multiplayer (S)i (N)o'
+      choose = gets.chomp
+      if %w[S s].include?(choose)
+        return true
+      elsif %w[N n].include?(choose)
+        return false
+      else
+        puts 'Invalid option, try again'
+      end
+    end
   end
 end

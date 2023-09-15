@@ -16,7 +16,7 @@ class Menu
               6 => ['List all authors', 'list_authors'],
               7 => ['Add a book', 'add_book'],
               8 => ['Add a music album', 2],
-              9 => ['Add a movie', 2],
+              9 => ['Add a game', 'add_game'],
               10 => %w[Exit save_all_on_exit] }
   end
 
