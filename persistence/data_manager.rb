@@ -10,5 +10,4 @@ module DataManager
   include LabelData
   include BookData
   include GamesData
-
 end
