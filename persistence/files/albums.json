@@ -1,1 +1,20 @@
-[{"id":490,"Publish date":"2001-01-01","On spotify":false},{"id":960,"Publish date":"2015-01-01","On spotify":false}]
+[
+  {
+    "id": 3128,
+    "publish_date": "2020-01-05",
+    "on_spotify": true,
+    "genre": {
+      "id": 10,
+      "name": "Pop"
+    }
+  },
+  {
+    "id": 6463,
+    "publish_date": "1950-05-01",
+    "on_spotify": true,
+    "genre": {
+      "id": 17,
+      "name": "rock"
+    }
+  }
+]

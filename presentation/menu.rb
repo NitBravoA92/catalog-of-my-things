@@ -1,6 +1,6 @@
 require_relative '../logic/user_interact'
 require_relative 'app'
-require_relative '../persistence/albums.rb'
+require_relative '../persistence/data/albums'
 
 class Menu
   attr_accessor :data

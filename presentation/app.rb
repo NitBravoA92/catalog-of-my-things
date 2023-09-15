@@ -1,15 +1,19 @@
+require_relative '../persistence/data/albums'
+require_relative '../persistence/data/genres'
 require_relative '../logic/entities/music_album'
 require_relative '../logic/entities/genre'
 require_relative '../logic/user_interact'
-require_relative '../persistence/albums.rb'
+require_relative '../persistence/data_manager'
 
 class App
   attr_accessor :albums, :genre
 
+  include DataManager
+
   def initialize
     @books = []
-    @albums = []
-    @genres = []
+    @genres = read_all_genres
+    @albums = read_all_albums(@genres)
     @labels = []
     @u_interact = UserInteract.new
   end
@@ -54,9 +58,6 @@ class App
     album = MusicAlbum.new(id, publish_date, on_spotify: on_spotify)
     album.add_genre(genre)
     @albums.push(album)
-    # album_to_save = [{'id': id, 'Publish date': publish_date, 'On spotify': on_spotify }]
-    # album_file = './persistence/files/albums.json'
-    # write_data(album_to_save, album_file)
   end
 
   def add_genre
@@ -115,8 +116,8 @@ class App
   end
 
   def save_on_exit
-    save = AlbumsData.new(@albums)
-    save.save_to_hash
+    save_album(@albums) unless @albums.empty?
+    save_genres(@genres) unless @genres.empty?
     exit
-  end  
+  end
 end
