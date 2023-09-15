@@ -17,7 +17,7 @@ class App
     @games = []
     @albums = []
     @genres = []
-    @labels = get_all_labels
+    @labels = read_all_labels
     @u_interact = UserInteract.new
     @check = CheckData.new
   end

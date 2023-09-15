@@ -1,7 +1,7 @@
 require 'json'
 
 module FileManager
-  DIRECTORY = "./persistence/files/"
+  DIRECTORY = './persistence/files/'.freeze
 
   def file(filename)
     "#{DIRECTORY}/#{filename}" # full path of the given file

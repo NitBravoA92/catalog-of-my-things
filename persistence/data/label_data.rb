@@ -1,13 +1,13 @@
 require_relative '../file_manager'
 
 module LabelData
-  FILENAME = 'labels.json'
+  FILENAME = 'labels.json'.freeze
 
   include FileManager
 
-  def get_all_labels
+  def read_all_labels
     data = read_file(file(FILENAME))
-    data.map { |label|  json_to_label(label) }
+    data.map { |label| json_to_label(label) }
   end
 
   def save_label(labels)
@@ -16,9 +16,9 @@ module LabelData
   end
 
   def label_to_json(label)
-    { 
-      id: label.id, 
-      title: label.title, 
+    {
+      id: label.id,
+      title: label.title,
       color: label.color,
       items: label.items.map(&:id)
     }
