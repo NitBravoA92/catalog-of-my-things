@@ -4,8 +4,11 @@ require_relative '../logic/entities/label'
 require_relative '../logic/entities/book'
 require_relative '../logic/user_interact'
 require_relative '../logic/checkdata'
+require_relative '../persistence/data_manager'
 
 class App
+  include DataManager
+
   attr_accessor :albums, :genre
 
   def initialize
@@ -14,7 +17,7 @@ class App
     @games = []
     @albums = []
     @genres = []
-    @labels = []
+    @labels = get_all_labels
     @u_interact = UserInteract.new
     @check = CheckData.new
   end
@@ -126,5 +129,9 @@ class App
       genre = @genres[option]
     end
     genre
+  end
+
+  def save_all_on_exit
+    save_label(@labels) unless @labels.empty?
   end
 end
