@@ -5,9 +5,9 @@ module BookData
 
   include FileManager
 
-  def read_all_books
+  def read_all_books(labels)
     data = read_file(file(FILENAME))
-    data.map { |book|  json_to_book(book) }
+    data.map { |book|  json_to_book(book, labels.find { |item| book["label"]["id"] == item.id }) }
   end
 
   def save_book(books)
@@ -25,9 +25,9 @@ module BookData
     }
   end
 
-  def json_to_book(book_json)
+  def json_to_book(book_json, label)
     book = Book.new(book_json['id'], book_json['publish_date'], book_json['publisher'], book_json['cover_state'])
-    book.add_label(Label.new(book_json['label']['id'], book_json['label']['title'], book_json['label']['color']))
+    book.add_label(label)
     book
   end
 end
