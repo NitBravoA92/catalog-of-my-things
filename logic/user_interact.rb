@@ -74,9 +74,9 @@ class UserInteract
 
   def multiplayer
     loop do
-      puts 'The game it is multiplayer (S)i (N)o'
+      puts 'The game it is multiplayer (Y)es (N)o'
       choose = gets.chomp
-      if %w[S s].include?(choose)
+      if %w[Y y].include?(choose)
         return true
       elsif %w[N n].include?(choose)
         return false
