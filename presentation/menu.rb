@@ -17,7 +17,7 @@ class Menu
               7 => ['Add a book', 'add_book'],
               8 => ['Add a music album', 2],
               9 => ['Add a movie', 2],
-              10 => ['Exit'] }
+              10 => ['Exit', 'save_all_on_exit'] }
   end
 
   def menu_options
@@ -33,11 +33,10 @@ class Menu
   def sub_menu(option)
     @menu.each do |key, value|
       if key == option
+        @app.send(value[1])
         if option == 10
           puts "I'll be back!!"
           exit
-        else
-          @app.send(value[1])
         end
       end
     end
