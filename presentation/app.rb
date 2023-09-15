@@ -3,6 +3,7 @@ require_relative '../logic/entities/genre'
 require_relative '../logic/entities/label'
 require_relative '../logic/entities/book'
 require_relative '../logic/user_interact'
+require_relative '../logic/checkdata'
 
 class App
   attr_accessor :albums, :genre
@@ -15,68 +16,31 @@ class App
     @genres = []
     @labels = []
     @u_interact = UserInteract.new
+    @check = CheckData.new
   end
 
   def list_books
-    puts "\nBook List:"
-    if @books.empty?
-      puts 'No books available'
-      return nil
-    end
-
-    @books.each_with_index do |book, idx|
-      puts "#{idx}) " \
-           "ID: #{book.id}, " \
-           "Label: #{book.label.title}, " \
-           "Publish Date: #{book.publish_date}, " \
-           "Publisher: #{book.publisher}, " \
-           "Cover State: #{book.cover_state}"
-    end
+    @check.check_list_books(@books)
   end
 
   def list_authors
-    puts 'Authors list'
-    if @authors.empty?
-      puts 'No authors available'
-      return nil
-    end
-
-    @authors.each_with_index do |author, index|
-      puts "#{index}) " \
-           "ID: #{author.id}," \
-           "Name: #{author.first_name}," \
-           "Last name: #{author.last_name},"
-    end
+    @check.check_list_authors(@authors)
   end
 
   def list_games
-    puts 'Games List'
-    if @games.empty?
-      puts 'No games available'
-      return nil
-    end
-    @games.each_with_index do |games, index|
-      puts "#{index})" \
-           "ID: #{games.id}," \
-           "Publish date: #{games.publish_date}," \
-           "Multiplayer: #{games.multiplayer}," \
-           "Last played: #{games.last_played_at},"
-    end
+    @check.check_list_games(@games)
   end
 
   def list_labels
-    puts "\nLabel List:"
-    if @labels.empty?
-      puts 'No Labels available'
-      return nil
-    end
+    @check.check_list_labels(@labels)
+  end
 
-    @labels.each_with_index do |label, idx|
-      puts "#{idx}) " \
-           "ID: #{label.id}, " \
-           "Title: #{label.title}, " \
-           "Color: #{label.color}, "
-    end
+  def list_albums
+    @check.check_list_albums(@albums)
+  end
+
+  def list_genres
+    @check.check_list_genres(@genres)
   end
 
   def add_label
@@ -162,31 +126,5 @@ class App
       genre = @genres[option]
     end
     genre
-  end
-
-  def list_albums
-    puts 'Music Albums list: '
-    if @albums.empty?
-      puts 'No Music Albums in your catalog yet'
-      return nil
-    end
-
-    @albums.each_with_index do |album, idx|
-      puts "\n #{idx}) ID: (#{album.id})" \
-           "- Publish Date: #{album.publish_date} - Genre: #{album.genre.name} " \
-           "- Is available on Spotify: #{album.on_spotify}"
-    end
-  end
-
-  def list_genres
-    puts 'Genres List:'
-    if @genres.empty?
-      puts 'No Genres available yet'
-      return nil
-    end
-
-    @genres.each_with_index do |genre, idx|
-      puts "\n #{idx}) ID: (#{genre.id}) Genre: #{genre.name}"
-    end
   end
 end
