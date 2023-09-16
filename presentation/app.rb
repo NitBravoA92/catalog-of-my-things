@@ -75,7 +75,7 @@ class App
 
   def new_book
     id = Random.rand(1..10_000)
-    publish_date = @u_interact.publish_date
+    publish_date = @u_interact.publish_date('Enter publish date')
     publisher = @u_interact.publisher
     cover_state = @u_interact.cover_state
     label = nil
@@ -100,7 +100,7 @@ class App
 
   def add_album
     id = Random.rand(1..10_000)
-    publish_date = @u_interact.publish_date
+    publish_date = @u_interact.publish_date('Enter publish date')
     on_spotify = @u_interact.on_spotify?
     genre = select_genre
     album = MusicAlbum.new(id, publish_date, on_spotify: on_spotify)
@@ -140,11 +140,9 @@ class App
 
   def add_game
     id = Random.rand(2000..10_000)
-    puts "\nEnter publish date"
-    pd = @u_interact.publish_date
+    pd = @u_interact.publish_date('Enter publish date')
     mp = @u_interact.multiplayer
-    puts "\nEnter last played date"
-    lp = @u_interact.publish_date
+    lp = @u_interact.publish_date('Enter last played date')
 
     if @authors.empty?
       author = add_author

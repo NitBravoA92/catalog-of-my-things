@@ -7,7 +7,8 @@ class UserInteract
     gets.chomp.to_i
   end
 
-  def publish_date
+  def publish_date(msj)
+    puts "\n#{msj}"
     puts "\nEnter the year"
     year = gets.chomp
     puts "\nEnter month in numbers, eg.: 04 for April"
