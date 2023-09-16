@@ -70,7 +70,7 @@ class App
 
   def add_book
     new_book
-    puts "Book created successfully\n"
+    puts "\nBook created successfully\n"
   end
 
   def new_book
@@ -106,6 +106,7 @@ class App
     album = MusicAlbum.new(id, publish_date, on_spotify: on_spotify)
     album.add_genre(genre)
     @albums.push(album)
+    puts "\nAlbum created successfully\n"
   end
 
   def add_genre
@@ -139,10 +140,10 @@ class App
 
   def add_game
     id = Random.rand(2000..10_000)
-    puts 'Enter publish date'
+    puts "\nEnter publish date"
     pd = @u_interact.publish_date
     mp = @u_interact.multiplayer
-    puts 'Enter last played date'
+    puts "\nEnter last played date"
     lp = @u_interact.publish_date
 
     if @authors.empty?
@@ -159,6 +160,7 @@ class App
     game = Game.new(id, pd, mp, lp)
     game.add_author(author)
     @games << game
+    puts "\nGame created successfully\n"
   end
 
   def add_author

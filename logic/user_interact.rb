@@ -8,17 +8,17 @@ class UserInteract
   end
 
   def publish_date
-    puts 'Enter the year'
+    puts "\nEnter the year"
     year = gets.chomp
-    puts 'Enter month in numbers, eg.: 04 for April'
+    puts "\nEnter month in numbers, eg.: 04 for April"
     month = gets.chomp
-    puts 'Enter date'
+    puts "\nEnter date"
     day = gets.chomp
     Date.parse("#{year}-#{month}-#{day}")
   end
 
   def on_spotify?
-    puts 'Is your album on Spotify (Y/N)?'
+    puts "\nIs your album on Spotify (Y/N)?"
     input = gets.chomp
     to_cap_letter = input.capitalize
 
@@ -26,7 +26,7 @@ class UserInteract
   end
 
   def add_genre
-    puts 'Please write the Music Genre you want to add'
+    puts "\nPlease write the Music Genre you want to add"
     input = gets.chomp
     input.capitalize
     input
@@ -75,7 +75,7 @@ class UserInteract
 
   def multiplayer
     loop do
-      puts 'The game it is multiplayer (Y)es (N)o'
+      puts "\nThe game it is multiplayer (Y)es (N)o"
       choose = gets.chomp
       if %w[Y y].include?(choose)
         return true
@@ -88,12 +88,12 @@ class UserInteract
   end
 
   def name
-    puts 'Enter author name'
+    puts "\nEnter author name"
     gets.chomp
   end
 
   def lname
-    puts 'Enter author last name'
+    puts "\nEnter author last name"
     gets.chomp
   end
 

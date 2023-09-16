@@ -13,7 +13,7 @@ class Menu
               2 => ['List all music albums', 'list_albums'],
               3 => ['List all games', 'list_games'],
               4 => ['List all genres', 'list_genres'],
-              5 => ['List all Labels', 'list_labels'],
+              5 => ['List all labels', 'list_labels'],
               6 => ['List all authors', 'list_authors'],
               7 => ['Add a book', 'add_book'],
               8 => ['Add a music album', 'add_album'],
@@ -37,7 +37,29 @@ class Menu
 
       @app.send(value[1])
       if option == 10
-        puts "I'll be back!!"
+        puts "\n\n\nI'll be back!!\n\n"
+
+        puts "MMMMMMMMMMMMMMMMMMMMMMMMMMMMW0l;;:lxXWMMMMMMMMMMMM"
+        puts "MMMMMMMMMMMMMMMMMMMMMMMMMMMWk.      .xWMMMMMMMMMMM"
+        puts "MMMMMMMMMMMMMMMMMMMMMMMMMMMX;        .kMMMMMMMMMMM"
+        puts "MMMMMMMMMMMMMMMMMMMMMMMMMMK;          oWMMMMMMMMMM"
+        puts "MMMMMMMMMMMMMMMMMMMMMMMWOo;          .kMMMMMMMMMMM"
+        puts "MMMMMMMMMMMMMMMMMMMMMMKl.            lNMMMMMMMMMMM"
+        puts "MMMMMMMMMMMMMMMMMMMMNx'             cXWWWWWWWWMMMM"
+        puts "MWWWWWWWWWWMMMMMN0c.                            .d"
+        puts "            lNl                                   "
+        puts "            lXl                                 .x"
+        puts "            lXl                                 .k"
+        puts "            lXl                                 .O"
+        puts "            lNl                                .OM"
+        puts "   .lxl.    lXl                                '0M"
+        puts "   ;KW0;    lXl                               .xWM"
+        puts "    .,.     lNl                              .dWMM"
+        puts ".          .xWx.                             .OMMM"
+        puts "0kkkkkkkkkk0WMWKkdl:,.                      .dNMMM"
+        puts "MMMMMMMMMMMMMMMMMMMMWX0xolc;'..          .'c0WMMMM"
+        puts "MMMMMMMMMMMMMMMMMMMMMMMMMMMWX0OxollllllodOXWMMMMMM"
+
         exit
       end
     end
