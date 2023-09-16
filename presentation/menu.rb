@@ -1,8 +1,10 @@
 require_relative '../logic/user_interact'
 require_relative 'app'
 require_relative '../persistence/data/albums'
+require_relative 'images'
 
 class Menu
+  include Ascii
   attr_accessor :data
 
   def initialize
@@ -36,32 +38,13 @@ class Menu
       next unless key == option
 
       @app.send(value[1])
-      if option == 10
-        puts "\n\n\nI'll be back!!\n\n"
+      next unless option == 10
 
-        puts "MMMMMMMMMMMMMMMMMMMMMMMMMMMMW0l;;:lxXWMMMMMMMMMMMM"
-        puts "MMMMMMMMMMMMMMMMMMMMMMMMMMMWk.      .xWMMMMMMMMMMM"
-        puts "MMMMMMMMMMMMMMMMMMMMMMMMMMMX;        .kMMMMMMMMMMM"
-        puts "MMMMMMMMMMMMMMMMMMMMMMMMMMK;          oWMMMMMMMMMM"
-        puts "MMMMMMMMMMMMMMMMMMMMMMMWOo;          .kMMMMMMMMMMM"
-        puts "MMMMMMMMMMMMMMMMMMMMMMKl.            lNMMMMMMMMMMM"
-        puts "MMMMMMMMMMMMMMMMMMMMNx'             cXWWWWWWWWMMMM"
-        puts "MWWWWWWWWWWMMMMMN0c.                            .d"
-        puts "            lNl                                   "
-        puts "            lXl                                 .x"
-        puts "            lXl                                 .k"
-        puts "            lXl                                 .O"
-        puts "            lNl                                .OM"
-        puts "   .lxl.    lXl                                '0M"
-        puts "   ;KW0;    lXl                               .xWM"
-        puts "    .,.     lNl                              .dWMM"
-        puts ".          .xWx.                             .OMMM"
-        puts "0kkkkkkkkkk0WMWKkdl:,.                      .dNMMM"
-        puts "MMMMMMMMMMMMMMMMMMMMWX0xolc;'..          .'c0WMMMM"
-        puts "MMMMMMMMMMMMMMMMMMMMMMMMMMMWX0OxollllllodOXWMMMMMM"
+      puts "\n\n\nI'll be back!!\n\n"
 
-        exit
-      end
+      hand
+
+      exit
     end
 
     menu_options
