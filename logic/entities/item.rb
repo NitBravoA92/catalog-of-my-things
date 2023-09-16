@@ -9,6 +9,7 @@ class Item
     @archived = false
     @genre = nil
     @label = nil
+    @author = nil
   end
 
   def add_genre(genre)

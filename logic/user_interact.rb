@@ -85,4 +85,19 @@ class UserInteract
       end
     end
   end
+
+  def name
+    puts 'Enter author name'
+    gets.chomp
+  end
+  
+  def lname
+    puts 'Enter author last name'
+    gets.chomp
+  end 
+  
+  def select_author
+    puts 'Select author by the index [not id] or press (n) if you need to add a new one'
+    gets.chomp
+  end
 end
