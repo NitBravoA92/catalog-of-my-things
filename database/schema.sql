@@ -41,5 +41,6 @@ CREATE TABLE game (
   publish_date DATE NOT NULL,
   multiplayer BOOLEAN NOT NULL DEFAULT FALSE,
   publish_date DATE NOT NULL,
+  archived BOOLEAN NOT NULL DEFAULT FALSE,
   author_id INT NOT NULL REFERENCES author (id),
 );
