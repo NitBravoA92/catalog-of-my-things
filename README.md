@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h1><b>OOP School Library | Ruby Project</b></h1>
+  <h1><b>Catalog Of My Things | Ruby Project</b></h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -9,7 +9,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [OOP School Library ](#oop-school-library-)
+- [OOP Catalog Of My Things ](#-oop-catalog-of-my-things-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -34,7 +34,7 @@
 
 **"Catalog of My things"** is a program made in ruby ​that allows you to manage through the command line the status of your Books, Music Albums and Games. You will be able to saved them, list them and define if it time to archive them upon their antiquity.
 
-[Find a video link of this project here:] () 
+[Find a video link of this project here:] (https://drive.google.com/file/d/19yOqle71XGMpCnwxi3YuiQUZhSILR7H8/view?usp=sharing) 
 
 ---
 
@@ -111,7 +111,7 @@ git clone https://github.com/NitBravoA92/catalog-of-my-things
 Go to the project directory:
 
 ```
- cd oop-school-library
+ cd catalog-of-my-things
 ```
 
 Before to run the program, verify that you have Ruby installed on your OS running the following command:
@@ -155,8 +155,7 @@ You can navigate through the program's options menu to add books, music albums a
 - In the Command Line:
 ```
  rspec spec
-```or 
-```
+   or
  rspect -file-name-
 ```
 
