@@ -26,6 +26,6 @@ CREATE TABLE music_albums (
   publish_date DATE NOT NULL, 
   on_spotify BOOLEAN NOT NULL DEFAULT FALSE,
   archived BOOLEAN NOT NULL DEFAULT FALSE,
-  genre_id INT NOT NULL REFERENCES labels (id),
+  genre_id INT NOT NULL REFERENCES genres (id),
   PRIMARY KEY (id)
 );
