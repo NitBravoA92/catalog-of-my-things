@@ -146,12 +146,12 @@ class App
     else
       list_authors
       aut_choose = @u_interact.select_author
-      if %w[n N].include?(aut_choose)
-        author = add_author
-      else
-        author = @authors[aut_choose.to_i]
-      end 
-    end   
+      author = if %w[n N].include?(aut_choose)
+                 add_author
+               else
+                 @authors[aut_choose.to_i]
+               end
+    end
     game = Game.new(id, pd, mp, lp)
     game.add_author(author)
     @games << game
@@ -165,7 +165,7 @@ class App
     author = Author.new(id, fn, ln)
     @authors << author
     author
-  end  
+  end
 
   def save_all_on_exit
     save_book(@books) unless @books.empty?
