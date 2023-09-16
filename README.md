@@ -30,9 +30,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# OOP School Library <a name="about-project"></a>
+# Catalog of My Things <a name="about-project"></a>
 
-**"OOP School Library"** is a program made in ruby ​​for a University library, which was created using the object-oriented programming paradigm. The program allows users to register new students and teachers, manage book information, and more efficiently control books borrowing.
+**"Catalog of My things"** is a program made in ruby ​that allows you to manage through the command line the status of your Books, Music Albums and Games. You will be able to saved them, list them and define if it time to archive them upon their antiquity.
+
+[Find a video link of this project here:] () 
 
 ---
 
@@ -52,6 +54,15 @@
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
+
+-**[Use of UML diagram as base]**
+-**[work on Pair Programming]**
+-**[Use Gitflow]**
+-**[Implement OOP principles and follow best practicies]**
+-**[Use of Inheritances, Modules, Association]**
+-**[generate a UI with the Console as Entry Point]**
+-**[Generate a schema.sql file with tables in structure]**
+-**[Generate Tests ]**
 
 <ul>
   <li>Ruby</li>
@@ -92,7 +103,7 @@ In order to run this project you need:
 Clone this repository to your desired folder by using this 👇️ command :
 
 ```
-git clone https://github.com/NitBravoA92/oop-school-library.git
+git clone https://github.com/NitBravoA92/catalog-of-my-things
 ```
 
 ### Install
@@ -124,23 +135,30 @@ Run the following command inside the project folder:
 This will display the main application menu:
 
 ```
-Welcome to School Library App!
+Welcome to your Catalog Manager!
 
-Please choose an option by enterin a number:
-1. List all books
-2. List all people
-3. Create a person
-4. Create a book
-5. Create a rental
-6. List all rentals for a given person id
-7. Exit
+1'List all books'
+2'List all music albums'
+3'List all games'
+4'List all genres'
+5'List all Labels'
+6'List all authors'
+7'Add a book'
+8'Add a music album'
+9'Add a game'
 ```
 
-You can navigate through the program's options menu to create books, students, teachers, and book rentals. You can also see the list of all the records you have previously added.
+You can navigate through the program's options menu to add books, music albums and games. You can also see the list of all the records you have previously added, and see also genres, labels and authors independently.
 
 ### Run tests
 
-- Not aplicable.
+- In the Command Line:
+```
+ rspec spec
+```or 
+```
+ rspect -file-name-
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -156,11 +174,17 @@ You can navigate through the program's options menu to create books, students, t
 - Twitter: [@softwareDevOne](https://twitter.com/softwareDevOne)
 - LinkedIn: [Nitcelis Bravo Alcala](https://www.linkedin.com/in/nitcelis-bravo-alcala-b65340158)
 
-👤 **Ahmed Eid**
+👤 **Andy Zam**
 
-- GitHub: [Ahmed Eid](https://github.com/ahmedeid6842)
-- Twitter: [@ahmedeid2684](https://twitter.com/ahmedeid2684)
-- LinkedIn: [Ahmed Eid](https://www.linkedin.com/in/ameid/)
+- GitHub: [Andres Zamorano](https://github.com/Dachrono)
+- Twitter: [Andres Zamorano](https://twitter.com/Dachrono)
+- LinkedIn: [Andres Zamorano](https://www.linkedin.com/in/andres-zamorano-785b77a1/)
+
+👤 **Hernán Güemes**
+
+- GitHub: [@githubhandle](https://github.com/HFG43)
+- Twitter: [@twitterhandle](https://twitter.com/HFG_43)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/hernanguemes/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -172,12 +196,8 @@ You can navigate through the program's options menu to create books, students, t
 
 Upcoming improvements:
 
-- [x] Implement the "Decorator" design pattern to extends the functionalities of the classes
-- [x] Implement the association relationships
-- [x] Add basic UI to the program
-- [x] Apply SOLID principles
-- [x] Preserve data
-- [ ] Create unit tests
+- [ ] **Include Delete options**
+- [ ] **Add Movies class**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -189,7 +209,7 @@ Upcoming improvements:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/NitBravoA92/decode-morse-code-message/issues).
+Feel free to check the [issues page](https://github.com/NitBravoA92/catalog-of-my-things/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
