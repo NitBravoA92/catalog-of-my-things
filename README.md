@@ -56,7 +56,7 @@
 ### Key Features <a name="key-features"></a>
 
 -**[Use of UML diagram as base]**
--**[work on Pair Programming]**
+-**[Work on Pair Programming]**
 -**[Use Gitflow]**
 -**[Implement OOP principles and follow best practicies]**
 -**[Use of Inheritances, Modules, Association]**
