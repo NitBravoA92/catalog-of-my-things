@@ -1,8 +1,10 @@
 require_relative '../logic/user_interact'
 require_relative 'app'
 require_relative '../persistence/data/albums'
+require_relative 'images'
 
 class Menu
+  include Ascii
   attr_accessor :data
 
   def initialize
@@ -13,7 +15,7 @@ class Menu
               2 => ['List all music albums', 'list_albums'],
               3 => ['List all games', 'list_games'],
               4 => ['List all genres', 'list_genres'],
-              5 => ['List all Labels', 'list_labels'],
+              5 => ['List all labels', 'list_labels'],
               6 => ['List all authors', 'list_authors'],
               7 => ['Add a book', 'add_book'],
               8 => ['Add a music album', 'add_album'],
@@ -36,10 +38,13 @@ class Menu
       next unless key == option
 
       @app.send(value[1])
-      if option == 10
-        puts "I'll be back!!"
-        exit
-      end
+      next unless option == 10
+
+      puts "\n\n\nI'll be back!!\n\n"
+
+      hand
+
+      exit
     end
 
     menu_options

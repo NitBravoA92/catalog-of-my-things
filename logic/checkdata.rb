@@ -2,12 +2,12 @@ class CheckData
   def check_list_books(books)
     puts "\nBook List:"
     if books.empty?
-      puts 'No books available'
+      puts "\nNo books available"
       return nil
     end
 
     books.each_with_index do |book, idx|
-      puts "#{idx}) " \
+      puts "\n#{idx}) " \
            "ID: #{book.id}, " \
            "Label: #{book.label.title}, " \
            "Publish Date: #{book.publish_date}, " \
@@ -17,14 +17,14 @@ class CheckData
   end
 
   def check_list_authors(authors)
-    puts 'Authors list'
+    puts "\nAuthors list"
     if authors.empty?
-      puts 'No authors available'
+      puts "\nNo authors available"
       return nil
     end
 
     authors.each_with_index do |author, index|
-      puts "#{index}) " \
+      puts "\n#{index}) " \
            "ID: #{author.id}, " \
            "Name: #{author.first_name}, " \
            "Last name: #{author.last_name}"
@@ -32,13 +32,13 @@ class CheckData
   end
 
   def check_list_games(games)
-    puts 'Games List'
+    puts "\nGames List"
     if games.empty?
-      puts 'No games available'
+      puts "\nNo games available"
       return nil
     end
     games.each_with_index do |game, index|
-      puts "#{index}) " \
+      puts "\n#{index}) " \
            "ID: #{game.id}, " \
            "Publish date: #{game.publish_date}, " \
            "Multiplayer: #{game.multiplayer}, " \
@@ -49,12 +49,12 @@ class CheckData
   def check_list_labels(labels)
     puts "\nLabel List:"
     if labels.empty?
-      puts 'No Labels available'
+      puts "\nNo Labels available"
       return nil
     end
 
     labels.each_with_index do |label, idx|
-      puts "#{idx}) " \
+      puts "\n#{idx}) " \
            "ID: #{label.id}, " \
            "Title: #{label.title}, " \
            "Color: #{label.color}, "
@@ -62,9 +62,9 @@ class CheckData
   end
 
   def check_list_albums(albums)
-    puts 'Music Albums list: '
+    puts "\nMusic Albums list: "
     if albums.empty?
-      puts 'No Music Albums in your catalog yet'
+      puts "\nNo Music Albums in your catalog yet"
       return nil
     end
 
@@ -76,9 +76,9 @@ class CheckData
   end
 
   def check_list_genres(genres)
-    puts 'Genres List:'
+    puts "\nGenres List:"
     if genres.empty?
-      puts 'No Genres available yet'
+      puts "\nNo Genres available yet"
       return nil
     end
 
