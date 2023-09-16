@@ -1,11 +1,11 @@
 require 'date'
 require_relative '../logic/entities/genre'
-require_relative '../logic/entities/music_album.rb'
+require_relative '../logic/entities/music_album'
 
 describe MusicAlbum do
   before :each do
     genre = Genre.new(25, 'Pop')
-    @album = MusicAlbum.new(991, Date.new(1979, 07, 03), on_spotify: true)
+    @album = MusicAlbum.new(991, Date.new(1979, 0o7, 0o3), on_spotify: true)
     @album.add_genre(genre)
   end
 
@@ -24,7 +24,7 @@ describe MusicAlbum do
     end
 
     it 'should save the publish date of the new album' do
-      expect(@album.publish_date).to eq(Date.new(1979, 07, 03))
+      expect(@album.publish_date).to eq(Date.new(1979, 0o7, 0o3))
     end
   end
 

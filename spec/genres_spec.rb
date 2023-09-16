@@ -1,11 +1,11 @@
 require 'date'
 require_relative '../logic/entities/genre'
-require_relative '../logic/entities/music_album.rb'
+require_relative '../logic/entities/music_album'
 
 describe Genre do
   before :each do
     @genre = Genre.new(10, 'ProgRock')
-    @album = MusicAlbum.new(1, Date.new(1980, 05, 25), on_spotify: false)
+    @album = MusicAlbum.new(1, Date.new(1980, 0o5, 25), on_spotify: false)
   end
 
   describe '#new' do
