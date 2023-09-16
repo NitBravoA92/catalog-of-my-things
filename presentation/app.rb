@@ -5,6 +5,7 @@ require_relative '../logic/entities/genre'
 require_relative '../logic/entities/label'
 require_relative '../logic/entities/book'
 require_relative '../logic/entities/game'
+require_relative '../logic/entities/author'
 require_relative '../logic/user_interact'
 require_relative '../logic/checkdata'
 require_relative '../persistence/data_manager'
@@ -21,8 +22,8 @@ class App
     @albums = read_all_albums(@genres)
     @labels = read_all_labels
     @books = read_all_books(@labels)
-    @authors = []
-    @games = read_games
+    @authors = read_authors
+    @games = read_games(@authors)
     @u_interact = UserInteract.new
     @check = CheckData.new
   end
@@ -144,14 +145,37 @@ class App
     puts 'Enter last played date'
     lp = @u_interact.publish_date
 
+    if @authors.empty?
+      author = add_author
+    else
+      list_authors
+      aut_choose = @u_interact.select_author
+      author = if %w[n N].include?(aut_choose)
+                 add_author
+               else
+                 @authors[aut_choose.to_i]
+               end
+    end
     game = Game.new(id, pd, mp, lp)
+    game.add_author(author)
     @games << game
+  end
+
+  def add_author
+    id = Random.rand(5000..10_000)
+    fn = @u_interact.name
+    ln = @u_interact.lname
+
+    author = Author.new(id, fn, ln)
+    @authors << author
+    author
   end
 
   def save_all_on_exit
     save_book(@books) unless @books.empty?
     save_label(@labels) unless @labels.empty?
     save_games(@games) unless @games.empty?
+    save_authors(@authors) unless @authors.empty?
     save_album(@albums) unless @albums.empty?
     save_genres(@genres) unless @genres.empty?
   end

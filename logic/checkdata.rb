@@ -25,9 +25,9 @@ class CheckData
 
     authors.each_with_index do |author, index|
       puts "#{index}) " \
-           "ID: #{author.id}," \
-           "Name: #{author.first_name}," \
-           "Last name: #{author.last_name},"
+           "ID: #{author.id}, " \
+           "Name: #{author.first_name}, " \
+           "Last name: #{author.last_name}"
     end
   end
 
