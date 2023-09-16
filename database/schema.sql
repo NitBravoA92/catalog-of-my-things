@@ -29,3 +29,17 @@ CREATE TABLE music_albums (
   genre_id INT NOT NULL REFERENCES genres (id),
   PRIMARY KEY (id)
 );
+
+CREATE TABLE author (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE game (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  publish_date DATE NOT NULL,
+  multiplayer BOOLEAN NOT NULL DEFAULT FALSE,
+  publish_date DATE NOT NULL,
+  author_id INT NOT NULL REFERENCES author (id),
+);
